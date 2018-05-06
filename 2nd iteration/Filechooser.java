@@ -1,4 +1,4 @@
-package first_iteration;
+// 패키지 명은 각자 이클립스 파일에 맞게 적용해서 실행시키세요.  저 같은 경우 package seconditeration; 
 import java.awt.BorderLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
