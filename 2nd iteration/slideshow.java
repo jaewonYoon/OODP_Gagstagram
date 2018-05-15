@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
+/** written by jaewon Yoon 5/13 **/ 
 
 public class slideshow extends JFrame{
     JLabel pic;
