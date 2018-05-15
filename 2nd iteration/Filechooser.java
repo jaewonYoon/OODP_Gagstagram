@@ -1,4 +1,4 @@
-// 패키지 명은 각자 이클립스 파일에 맞게 적용해서 실행시키세요.  저 같은 경우 package seconditeration; 
+package first_iteration;
 import java.awt.BorderLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -25,9 +25,8 @@ public class Filechooser extends JPanel implements ActionListener{
     JFileChooser fc;
     JFileChooser fc_sub;
    //make singleton;  
-    private static Filechooser fileinstance  = new Filechooser();
     /////////////////private constructor /////////////////////
-    private Filechooser() {
+    public Filechooser() {
         super(new BorderLayout());
  
         log = new JTextArea(5,20);
@@ -126,11 +125,6 @@ public class Filechooser extends JPanel implements ActionListener{
         }
     }
 
-    // 확장자 필터링 
-  /*  String[] filterArr = new String[] {
-    		".jpg",".png",".gif",".jpeg"};
-    */
-    /////// createAndShowGUI()//////////
     public void createAndShowGUI() {
         JFrame frame = new JFrame("Filechooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,9 +132,7 @@ public class Filechooser extends JPanel implements ActionListener{
         frame.pack();
         frame.setVisible(true);
     }
-    public static Filechooser getInstance() {
-    		return fileinstance;
-    }
+   
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
