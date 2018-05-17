@@ -1,0 +1,78 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Register extends JFrame{
+
+    private JTextField studentID;
+    private JTextField password;
+    private JTextField name;
+    private JButton enter;
+    private static Student[] Student = new Student[10]; //Student 가 있는 위치
+    private static int numberOfRegistry = 0;
+    private static int currentStudent = 0;
+
+
+    public Register() {
+        JFrame frame = new JFrame("Register");
+        setVisible(true);
+        setSize(300,300);
+       setLayout(new GridLayout(6,2));
+
+
+        JLabel label = new JLabel("Please Enter studentID and password");
+        label.setFont(label.getFont().deriveFont(16.0f));
+        add(label);
+        add(new JLabel(""));
+
+        
+        //StudentID 입력란
+        add(new JLabel("StudentID"));
+        studentID = new JTextField(10);
+        add(studentID);
+
+        //password 입력란
+        add(new JLabel("Password"));
+        password = new JPasswordField(10);
+        add(password);
+
+        add(new JLabel("name"));
+        name = new JTextField(10);
+        add(name);
+
+
+        //Enter 버튼
+        enter = new JButton("ENTER");
+        add(enter);
+        //Enter 키 눌렀을시 동작
+        ButtonHandler handler = new ButtonHandler();
+        enter.addActionListener(handler);
+
+    }
+    public static Student[] getStudent() {
+        return Student;
+    }
+
+    public static int getCurrentStudent() {
+        return currentStudent;
+    }
+
+    public static int getNumberOfRegistry() {
+        return numberOfRegistry;
+    }
+
+    private class ButtonHandler implements ActionListener {
+        public void actionPerformed(ActionEvent event){
+            Student[numberOfRegistry] = new Student(studentID.getText(),password.getText(), name.getText());
+            numberOfRegistry++;
+            dispose(); 
+            System.out.println(numberOfRegistry);
+            System.out.println(enter.toString());
+        }
+    }
+
+
+}
+
+
