@@ -15,8 +15,8 @@ public class Button_setIterator implements Iterator{
 		}
 	}
 	public Object next() {
-		But Button=bs.getButtonAt(index);
+		But But	=bs.getButtonAt(index);
 		index++;
-		return Button;
+		return But;
 	}
 }

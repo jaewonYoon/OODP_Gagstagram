@@ -1,16 +1,17 @@
 
 public class Button_set implements Aggregate{
-	private But[] Buttons;
+	private But[] But;
 	private int last=0;
+	
 	public Button_set(int maxsize) {
-		this.Buttons=new But[maxsize];
+		this.But=new But[maxsize];
 		
 	}
 	public But getButtonAt(int index) {
-		return Buttons[index];
+		return But[index];
 	}
-	public void ab(But p) {
-		this.Buttons[last]=p;
+	public void appendButton(But Butto) {
+		this.But[last]=Butto;
 		last++;
 	}
 	public int getLength() {

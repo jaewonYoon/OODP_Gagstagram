@@ -27,11 +27,17 @@ class Writer extends Dialog implements ActionListener{
 	Label lb4=new Label("첨부파일");
 	TextArea ta=new TextArea("",20, 60, TextArea.SCROLLBARS_VERTICAL_ONLY);
 	Button btn1=new Button("찾아보기");
-	Button btn2=new Button("등록");
-	Button btn3=new Button("취소");
+	//Button btn2=new Button("등록");
+	//Button btn3=new Button("취소");
 	TextField tf1=new TextField();
 	TextField tf2=new TextField();
 	TextField tf3=new TextField();
+	public
+	String[] msg= {"등록","취소"};
+	Button[] btn = new Button[msg.length];
+	Button_set bs=new Button_set(2);
+	
+	
 	public Writer(Frame owner, boolean modal) {
 		super(owner, modal);
 		init();
@@ -60,7 +66,8 @@ class Writer extends Dialog implements ActionListener{
 		BorderLayout b=new BorderLayout();
 		this.setLayout(b);
 		this.add("North", lb1);
-		
+
+
 		Panel p=new Panel(new BorderLayout());
 		Panel p1=new Panel(new GridLayout(3,1,3,3));
 		Panel p2 = new Panel(new BorderLayout());
@@ -80,8 +87,22 @@ class Writer extends Dialog implements ActionListener{
 		p.add("Center",ta);
 		Panel p5=new Panel(new CardLayout(5,10));
 		Panel p6=new Panel(new FlowLayout(FlowLayout.RIGHT));
-		p6.add(btn2);
-		p6.add(btn3);
+		
+
+		for(int i=0;i<msg.length;i++) {
+			bs.appendButton(new But(msg[i]));
+		}
+		Iterator i=bs.iterator();
+		int l=0;
+		while(i.hasNext()) {
+			But bt=(But)i.next();
+			btn[l]=new Button(bt.getName());
+			p6.add(btn[l]);
+			l++;
+		}
+		
+		//p6.add(btn2);
+		//p6.add(btn3);
 		p5.add(p6);
 		p.add("South",p5);
 		this.add(p);
@@ -90,8 +111,8 @@ class Writer extends Dialog implements ActionListener{
 	}
 	public void start() {
 		btn1.addActionListener(this);
-		btn2.addActionListener(this);
-		btn3.addActionListener(this);
+		btn[0].addActionListener(this);
+		btn[1].addActionListener(this);
 	}
 	public void actionPerformed(ActionEvent e) {
 		Object o=e.getSource();
@@ -102,7 +123,8 @@ class Writer extends Dialog implements ActionListener{
 			tf3.setText(f.getDirectory()+f.getFile());
 		}
 		
-		if(o==btn2) {
+		if(o==btn[0]) {
+
 			String t=tf1.getText();
 			String n=tf2.getText();
 			String f=tf3.getText();
@@ -113,7 +135,7 @@ class Writer extends Dialog implements ActionListener{
 			PostF.post();
 			setVisible(false);
 		}
-		else if(o==btn3) {
+		else if(o==btn[1]) {
 			this.setVisible(false);
 		}
 	}

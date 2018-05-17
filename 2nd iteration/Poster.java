@@ -47,11 +47,6 @@ class PostF extends Frame implements ActionListener, ItemListener{
 	Label view=new Label("글보기");
 	static List liF=new List(15);  //<-----------------------------------------------리스트
 	TextArea taF=new TextArea();
-	//Button b1=new Button("글쓰기");
-	//Button b2=new Button("새로고침");
-	//Button b3=new Button("수정");
-	//Button b4=new Button("삭제");
-	//Button b5=new Button("종료");
 	static ArrayList<Serial> data=new ArrayList<Serial>(); 
 	public
 	String[] message= {"글쓰기","수정","삭제","종료"};
