@@ -41,34 +41,24 @@ class PostF extends Frame implements ActionListener, ItemListener{
 	private static final long serialVersionUID = 1L;
 	private final static File F= new File("");
 	private 
-	String[] msg= {"글쓰기","수정","삭제","종료"};
-	Button[] bn=new Button[msg.length];
+
+	
 	Label list=new Label("글목록");
 	Label view=new Label("글보기");
 	static List liF=new List(15);  //<-----------------------------------------------리스트
 	TextArea taF=new TextArea();
-	Button b1=new Button("글쓰기");
-	Button b2=new Button("새로고침");
-	Button b3=new Button("수정");
-	Button b4=new Button("삭제");
-	Button b5=new Button("종료");
-	
-	//Button_set bs=new Button_set(4);
-	//bs.ab(new But("글쓰기"));
-	//bs.ab(new But("수정"));
-	//bs.ab(new But("삭제"));
-	//bs.ab(new But("종료"));
-	
+	//Button b1=new Button("글쓰기");
+	//Button b2=new Button("새로고침");
+	//Button b3=new Button("수정");
+	//Button b4=new Button("삭제");
+	//Button b5=new Button("종료");
+	static ArrayList<Serial> data=new ArrayList<Serial>(); 
+	public
+	String[] message= {"글쓰기","수정","삭제","종료"};
+	Button[] bn=new Button[message.length];
+	Button_set b=new Button_set(4);
 
-	//Iterator it=bs.iterator();
-	
-	//while(it.hasNext()) {
-		//But p=(But)it.next();
-		//Button b=new Button(p.getName());
-	//}
-	
-	
-	static ArrayList<Serial> data=new ArrayList<Serial>(); //<-----------------------------어레이리스트
+	//<-----------------------------어레이리스트
 	public PostF() {
 		super("GagStarGram");
 		init();
@@ -86,6 +76,16 @@ class PostF extends Frame implements ActionListener, ItemListener{
 
 	//==============================================================
 	private void init() {
+		for(int i=0;i<message.length;i++) {
+			b.appendButton(new But(message[i]));
+		}
+		Iterator i=b.iterator();
+		int c=0;
+		while(i.hasNext()) {
+			But bp=(But)i.next();
+			bn[c]=new Button(bp.getName());
+			c++;
+		}
 		taF.setEditable(false);
 		GridLayout gF=new GridLayout(1,2,8,0);  					//<-----------------(1,2)  ㅁㅁ  이렇게 있어서 가로 gap은 가능하지만 세로 gap x
 		this.setLayout(gF);    										//<========    visualize
@@ -95,7 +95,7 @@ class PostF extends Frame implements ActionListener, ItemListener{
 		p5.add(liF);
 		p1.add("Center", p5);
 		Panel p2=new Panel(new GridLayout(1,1,3,3));					//버튼 색도 iterator design pattern으로 가능
-		p2.add(b1);
+		p2.add(bn[0]);
 		//p2.add(b2);
 		p1.add("South",p2);												//전체적으로 init부분은 iterator 로 간략화 가능.
 		this.add(p1);
@@ -106,9 +106,9 @@ class PostF extends Frame implements ActionListener, ItemListener{
 		p6.add(taF);
 		p3.add("Center",p6);
 		Panel p4=new Panel(new GridLayout(1,3,3,3));
-		p4.add(b3);
-		p4.add(b4);
-		p4.add(b5);
+		p4.add(bn[1]);
+		p4.add(bn[2]);
+		p4.add(bn[3]);
 		p3.add("South",p4);
 		this.add(p3);
 		
@@ -120,15 +120,16 @@ class PostF extends Frame implements ActionListener, ItemListener{
 	//=====================================================================
 	private void start() {
 		liF.addItemListener(this);
-		b1.addActionListener(this);
+		bn[0].addActionListener(this);
 		//b2.addActionListener(this);
-		b3.addActionListener(this);
-		b4.addActionListener(this);
-		b5.addActionListener(this);
+		bn[1].addActionListener(this);
+		bn[2].addActionListener(this);
+		bn[3].addActionListener(this);
+
 	}
 	public void actionPerformed(ActionEvent e) {
 		Object o=e.getSource();
-		if(o==b1) {
+		if(o==bn[0]) {
 			 Writer d=new Writer(this, true);
 			 d.setVisible(true);
 		}
@@ -140,7 +141,7 @@ class PostF extends Frame implements ActionListener, ItemListener{
 			liF.select(i);
 		}*/
 
-		else if(o==b3){
+		else if(o==bn[1]){
 			int i=liF.getSelectedIndex();
 			if(i>=0) {
 				Writer d=new Writer(this, true, data.get(i));
@@ -150,7 +151,7 @@ class PostF extends Frame implements ActionListener, ItemListener{
 			}
 		}
 
-		else if(o==b4){
+		else if(o==bn[2]){
 			int i=liF.getSelectedIndex();
 			if(i>=0) {
 				data.remove(i);
@@ -161,7 +162,7 @@ class PostF extends Frame implements ActionListener, ItemListener{
 				liF.select(0);
 			}
 		}
-		else if(o==b5){
+		else if(o==bn[3]){
 			System.exit(0);
 		} 	
 	}
@@ -185,7 +186,6 @@ class PostF extends Frame implements ActionListener, ItemListener{
 		FileOutputStream fos = null;
 		ObjectOutputStream oos=null;
 		try {
-			System.out.println(data);
 			fos=new FileOutputStream(F);
 			BufferedOutputStream bos=new BufferedOutputStream(fos);
 			oos=new ObjectOutputStream(bos);
