@@ -1,0 +1,89 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Login extends JFrame {
+    private JTextField studentID;
+    private JTextField password;
+    private JButton enter;
+    private JButton register;
+ 
+    public Login(){
+    	
+    	
+        super("LOGIN");
+        setLayout(new GridLayout(4,5));
+
+
+        JLabel label = new JLabel("Gagstagram");
+        label.setFont(new Font("SanSerif",Font.PLAIN,41));
+        add(label);
+        add(new JLabel(""));
+
+        
+        //StudentID 입력란
+        add(new JLabel("StudentID"));
+        studentID = new JTextField(10);
+        add(studentID);
+
+        //password 입력란
+        add(new JLabel("Password"));
+        password = new JPasswordField(10);
+        add(password);
+
+        //Enter 버튼
+        enter = new JButton("ENTER");
+        add(enter);
+        //Enter 키 눌렀을시 동작
+        ButtonHandler handler = new ButtonHandler();
+        enter.addActionListener(handler);
+
+        //Register 버튼
+        register = new JButton("Register");
+        add(register);
+        RegHandler regHandler = new RegHandler();
+        register.addActionListener(regHandler);
+
+
+    }
+
+    //Enter 키 눌렀을시 동작-HANDLER
+    private class ButtonHandler implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+                String stu_ID = studentID.getText();
+                String stu_password = password.getText();
+           boolean found = false;
+           for(int i = 0; i< Register.getNumberOfRegistry();i++) {
+               if (stu_ID.equals(Register.getStudent()[i].getStudentID())) {
+                   if(stu_password.equals(Register.getStudent()[i].getPassword())) {
+                       JOptionPane.showMessageDialog(null, "Login Successful!!");
+                       //Menu 로 넘어감
+                      
+                       Menu menu = new Menu();
+                       found = true;
+                   }
+               }
+           }
+           if(found == false){
+               JOptionPane.showMessageDialog(null, "Login Failed!!");
+        
+           }
+
+
+        }
+    }
+
+    //Regist 키를 눌렀을시 동작-HANDLER
+    private class RegHandler implements  ActionListener{
+        public void actionPerformed(ActionEvent event){
+
+            //Register 클래스로 넘김
+            Register register = new Register();
+
+
+        }
+    }
+
+
+}
