@@ -24,56 +24,10 @@ public class Calendar {
 	            JOptionPane.showMessageDialog(null, "0보다 작은 수입니다.");
 	            return;
 	        }
-	        
-	       if(month == 1) {
-	    	   PrintCalendar printCal = new PrintCalendar();
-	    	   printCal.print(year, month);
-	       }
-	       if(month == 2) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 3) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 4) {
-	    	   PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 5) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 6) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 7) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 8) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 9) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 10) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 11) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       if(month == 12) {
-		       PrintCalendar printCal = new PrintCalendar();
-		       printCal.print(year, month);
-		   }
-	       
+	    	
+	        PrintCalendar printCal = new PrintCalendar();
+	    	printCal.print(year, month);
+	 
 	        return;
 	    }
 	    
