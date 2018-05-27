@@ -1,11 +1,14 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class PrintCalendar{
+public class PrintCalendar {
 	public void print(int year, int month) {	
     	Calendar cal = new Calendar();
 		JFrame jFrame = new JFrame(year+"년 "+month+"월");
@@ -21,9 +24,8 @@ public class PrintCalendar{
                 	System.out.println(i+ " " +y);
                 	btn[y] = new JButton("");
                 	container.add(btn[y]);
-                	
-                	CalendarMemo.memo();
-                	
+                	MyMouseListener listener = new MyMouseListener();
+                	btn[y].addMouseListener(listener);                	
                 	count++;
                 }
             }
@@ -40,4 +42,17 @@ public class PrintCalendar{
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	class MyMouseListener implements MouseListener {
+		public void mouseClicked(MouseEvent e) {
+	        CalendarMemo.memo();
+	    }
+		public void mouseEntered(MouseEvent e) {}
+	    public void mouseExited(MouseEvent e) {}
+	    public void mousePressed(MouseEvent e) {}
+	    public void mouseReleased(MouseEvent e) {}	    
+	}
+
 }
+
+	
