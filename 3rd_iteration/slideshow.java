@@ -11,8 +11,6 @@ public class slideshow extends JFrame{
     int x = 0;
     int delay = 0; 
     //Images Path In Array
-    
-    
     public slideshow(int num){
         super("GagStagram");
         pic = new JLabel();
@@ -64,10 +62,8 @@ public class slideshow extends JFrame{
         pic.setIcon(newImc);
 		}
     }
-
-public static void main(String[] args){ 
-	//slideshow slide1 = new slideshow(5); 
-	//slide1.start(); 
-	// new slideshow();
-}
+    public static void main(String[] args){ 
+    	slideshow slide1 = new slideshow(5); 
+    	slide1.start(); 
+    }
 }

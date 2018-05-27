@@ -58,10 +58,12 @@ public class View extends JFrame{
             	s.start();
             }
             else if(e== Calender){
-    			
+    			Calendar singletonCal = Calendar.getinstance();
+            	//Calendar c=new Calendar();
             }
             else if(e == PS){
-              //Filechooser f=new Filechooser();
+                Filechooser singletonfile=Filechooser.getinstance();
+                singletonfile.createAndShowGUI();
             }
         }
     }
