@@ -1,4 +1,5 @@
 
+
 public class Button_set implements Aggregate{
 	private But[] But;
 	private int last=0;

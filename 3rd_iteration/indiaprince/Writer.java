@@ -1,4 +1,5 @@
 
+
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.CardLayout;
@@ -40,6 +41,7 @@ class Writer extends Dialog implements ActionListener{
 	
 	public Writer(Frame owner, boolean modal) {
 		super(owner, modal);
+		setResizable(false);
 		init();
 		start();
 		this.pack();

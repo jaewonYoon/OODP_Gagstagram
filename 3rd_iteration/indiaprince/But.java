@@ -1,3 +1,4 @@
+
 public class But {
 	private String name;
 	public But(String name) {

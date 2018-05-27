@@ -1,4 +1,5 @@
 
+
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.CardLayout;
@@ -47,8 +48,11 @@ public class Post extends Frame implements ActionListener, ItemListener{
 	//<-----------------------------어레이리스트
 	public Post() {
 		super("GagStarGram");
+		setResizable(false);
 		init();
 		start();
+	}	
+	public void On() {
 		this.setSize(800,600);						//<=============================다 같이 사이즈 합의 해야함.
 		Dimension dS=Toolkit.getDefaultToolkit().getScreenSize(); // 윈도우 size
 		Dimension dF=this.getSize(); 							// 창 size
@@ -58,8 +62,11 @@ public class Post extends Frame implements ActionListener, ItemListener{
 				System.exit(0);
 			}
 		});
-	}	
-
+		setVisible(true);
+	}
+	public void Off() {
+		setVisible(false);
+	}
 	//==============================================================
 	private void init() {
 		for(int i=0;i<message.length;i++) {
