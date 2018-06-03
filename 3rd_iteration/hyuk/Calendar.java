@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
  
-public class Calendar {
+public class Calendar extends Common{
     public static void calendar() {
     		
 	        String cal = JOptionPane.showInputDialog("연도");
@@ -25,8 +25,43 @@ public class Calendar {
 	            return;
 	        }
 	    	
-	        PrintCalendar printCal = new PrintCalendar();
-	    	printCal.print(year, month);
+	        if(month == 1) {
+	        	makePrintcal(year,month);
+		    }
+		    if(month == 2) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 3) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 4) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 5) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 6) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 7) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 8) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 9) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 10) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 11) {
+		    	makePrintcal(year,month);
+			}
+		    if(month == 12) {
+		    	makePrintcal(year,month);
+			}
+
 	 
 	        return;
 	    }
