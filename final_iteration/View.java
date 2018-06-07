@@ -22,9 +22,9 @@ public class View extends JFrame{
     }
     public void on() {
         setVisible(true);
-		this.setSize(600,200);						//<=============================´Ù °°ÀÌ »çÀÌÁî ÇÕÀÇ ÇØ¾ßÇÔ.
-		Dimension dS=Toolkit.getDefaultToolkit().getScreenSize(); // À©µµ¿ì size
-		Dimension dF=this.getSize(); 							// Ã¢ size
+		this.setSize(600,200);						//<=============================ë‹¤ ê°™ì´ ì‚¬ì´ì¦ˆ í•©ì˜ í•´ì•¼í•¨.
+		Dimension dS=Toolkit.getDefaultToolkit().getScreenSize(); // ìœˆë„ìš° size
+		Dimension dF=this.getSize(); 							// ì°½ size
 		this.setLocation((int)((dS.getWidth()-dF.getWidth())/2),(int)((dS.getHeight()-dF.getHeight())/2)); 		
 		this.addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e) {
@@ -39,7 +39,7 @@ public class View extends JFrame{
     	setResizable(false);
         this.userName = userName;
         setLayout(new GridLayout(1,4));
-        //¹öÆ°µé ¸ñ·Ï
+        //ë²„íŠ¼ë“¤ ëª©ë¡
         Posting = new JButton("Posting");
         add(Posting);
         Album = new JButton("Album");
@@ -55,7 +55,7 @@ public class View extends JFrame{
         PS.addActionListener(handler);
 }
     private class ButtonHandler implements ActionListener {
-        public void actionPerformed(ActionEvent event) {            //instance ÇÏ³ª »ý¼ºÇØ³ö¾ßÁö ¸Þ´º·Î µ¹¾Æ¿ÔÀ»¶§ ´Ù½Ã Ã¢À» º¸ÀÌ°Ô ÇÒ ¼ö ÀÖÁö¾ÊÀ»±î?
+        public void actionPerformed(ActionEvent event) {            //instance í•˜ë‚˜ ìƒì„±í•´ë†”ì•¼ì§€ ë©”ë‰´ë¡œ ëŒì•„ì™”ì„ë•Œ ë‹¤ì‹œ ì°½ì„ ë³´ì´ê²Œ í•  ìˆ˜ ìžˆì§€ì•Šì„ê¹Œ?
         	Object e=event.getSource();
             if(e== Posting){
             	Post p=new Post();
@@ -76,7 +76,6 @@ public class View extends JFrame{
             }
             else if(e == PS){
                 Filechooser singletonfile=Filechooser.getinstance();
-                singletonfile.createAndShowGUI();
             }
         }
     }
