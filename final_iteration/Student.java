@@ -1,0 +1,27 @@
+
+public class Student {
+    private String studentID;
+    private String name;
+    private String password;
+   // private Message[] = new Message[20];
+    public Student(String studentiD1, String password1, String name1){
+        studentID = studentiD1;
+        name = name1;
+        password = password1;
+       // numberOfRegistry++;
+    }
+    public void viewInfo(){
+        System.out.println(studentID);
+        System.out.println(name);
+        System.out.println(password);
+    }
+    public String getStudentID() {
+        return studentID;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getPassword() {
+        return password;
+    }
+}
