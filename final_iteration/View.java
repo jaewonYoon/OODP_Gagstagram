@@ -15,6 +15,7 @@ public class View extends JFrame{
     private JButton Posting;
     private JButton Calender;
     private JButton PS;
+    private JButton PS2;
     private String userName;
 	RemoteControl remote=new RemoteControl();
     public View() {
@@ -38,7 +39,7 @@ public class View extends JFrame{
     public void makeBasicView(String userName) {
     	setResizable(false);
         this.userName = userName;
-        setLayout(new GridLayout(1,4));
+        setLayout(new GridLayout(1,5));
         //버튼들 목록
         Posting = new JButton("Posting");
         add(Posting);
@@ -46,14 +47,17 @@ public class View extends JFrame{
         add(Album);
         Calender = new JButton("Calender");
         add(Calender);
-        PS = new JButton("Picture Select");
+        PS = new JButton("Directory Select");
         add(PS);
+        PS2 = new JButton("Image Save");
+        add(PS2);
         ButtonHandler handler = new ButtonHandler();
         Posting.addActionListener(handler);
         Album.addActionListener(handler);
         Calender.addActionListener(handler);
         PS.addActionListener(handler);
-}
+        PS2.addActionListener(handler);
+    }		
     private class ButtonHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {            //instance 하나 생성해놔야지 메뉴로 돌아왔을때 다시 창을 보이게 할 수 있지않을까?
         	Object e=event.getSource();
@@ -76,6 +80,9 @@ public class View extends JFrame{
             }
             else if(e == PS){
                 Filechooser singletonfile=Filechooser.getinstance();
+            }
+            else if(e == PS2) {
+            	new PictureChoose();
             }
         }
     }
