@@ -3,25 +3,25 @@ import javax.swing.JOptionPane;
 public class Calendar{
     public static void calendar() {
     		
-	        String cal = JOptionPane.showInputDialog("연도");
+	        String cal = JOptionPane.showInputDialog("Year");
 	        if(!isNumber(cal)) {
-	        	JOptionPane.showMessageDialog(null, "오류");
+	        	JOptionPane.showMessageDialog(null, "Error");
 	            return;
 	        }
 	        int year = Integer.parseInt(cal);        
 	        if (year <= 0) {
-	            JOptionPane.showMessageDialog(null, "0보다 작은 수입니다.");
+	            JOptionPane.showMessageDialog(null, "Smaller than 0");
 	            return;
 	        }
 	 
-	        cal = JOptionPane.showInputDialog("월");
+	        cal = JOptionPane.showInputDialog("Month");
 	        if(!isNumber(cal)) {
-	            JOptionPane.showMessageDialog(null, "오류");
+	            JOptionPane.showMessageDialog(null, "Error");
 	            return;
 	        }
 	        int month = Integer.parseInt(cal);
 	        if (month > 12 || month < 0) {
-	            JOptionPane.showMessageDialog(null, "0보다 작은 수입니다.");
+	            JOptionPane.showMessageDialog(null, "Smaler than 0");
 	            return;
 	        }
 	    	
@@ -43,7 +43,6 @@ public class Calendar{
 	        }
 	    }
 	    
-	    // 숫자 여부 체크
 	    public static boolean isNumber(String str){
 	        boolean result = false; 
 	        try{
@@ -55,12 +54,10 @@ public class Calendar{
 	        return result ;
 	    }
 	 
-	    // 해당 년도가 윤년인지 판별
 	    public static boolean isLeapYear(int year){
 	        return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
 	    }
 	     
-	    // 해당 달의 첫 요일을 구해서 돌려줌.
 	    public int getStartDay(int year, int month){
 	        int monthSum = 0;
 	        int leapYear = 0;
@@ -78,7 +75,6 @@ public class Calendar{
 	        return (monthSum + leapYear + daySum) % 7;
 	    }
 	 
-	    // 달마다 마지막 날짜를 구한다
 	    public int getNumberOfDaysInMonth(int year, int month){
 	        if (month == 4 || month == 6 || month == 9 || month == 11){
 	            return 30;
