@@ -6,6 +6,6 @@ public class Winter extends Season{
     void tellsummer() {};
     void tellfall() {};
     void tellwinter() {
-    	JOptionPane.showMessageDialog(null, "겨울입니다");
+    	JOptionPane.showMessageDialog(null, "It's Winter");
     };
 }
