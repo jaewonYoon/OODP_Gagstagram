@@ -5,22 +5,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public abstract class Season {
-    void printcal(int year, int month) {
-    tellspring();
-    tellsummer();
-    tellfall();
-    tellwinter();
-    print(year, month);
-    }
+	void printcal(int year, int month) {
+		tellseason();
+		print(year, month);
+	}
 	
-    abstract void tellspring();
-    abstract void tellsummer();
-    abstract void tellfall();
-    abstract void tellwinter();
+	abstract void tellseason();
 	
     public void print(int year, int month) {
     	Calendar cal = new Calendar();
-	JFrame jFrame = new JFrame("Year " + year + "Month" + month);
+		JFrame jFrame = new JFrame("Year "+ year +"   Month " + month);
     	JButton [] btn = new JButton [35];
     	int count = 0;
         
