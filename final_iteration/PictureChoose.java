@@ -43,7 +43,8 @@ public class PictureChoose extends JFrame{
 				e1.printStackTrace();
 			}
 			imageSave.getinstanceof().saveimage();
-			dispose();
+			frame.dispose();
+			
 		}
 	});
 	frame.add(textfield,BorderLayout.CENTER);
