@@ -15,11 +15,12 @@ public class Filevisitor implements Visitor {
 	@Override
 	public void visit(visitorFile file) {
 		// TODO Auto-generated method stub
-		file.update_path();
-		File f =new File(file.getPath());
-		File[] allFiles = f.listFiles();
+		file.update_path(); // load the path to save the files 
+		File path =new File(file.getPath()); // 
+		System.out.println("현재의 패스: "+ file.getPath());
+		File[] allFiles = path.listFiles();
 		for(File afile :allFiles) {
-		if(file.getName().endsWith(filetype)) {
+		if(afile.getName().endsWith(filetype)) {
 			jpgfiles.add(afile);
 		}
 	  }
