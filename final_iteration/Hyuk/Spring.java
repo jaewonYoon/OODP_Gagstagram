@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class Spring extends Season{
 	
 	void tellspring() {
-		JOptionPane.showMessageDialog(null, "봄입니다");
+		JOptionPane.showMessageDialog(null, "It's Spring");
 	};
     void tellsummer() {};
     void tellfall() {};
