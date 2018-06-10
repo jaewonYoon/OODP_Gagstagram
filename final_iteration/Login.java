@@ -100,7 +100,7 @@ public class Login extends JFrame {
 
     private class LanguageHandler implements ActionListener{
        public void actionPerformed(ActionEvent event) {
-          language.changeLanguage(title, pw, id, enter, register, lanbtn);
+          language.changeLanguage(title, id, pw, enter, register, lanbtn);
        }
     }
 }
