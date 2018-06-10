@@ -20,7 +20,7 @@ public abstract class Season {
 	
     public void print(int year, int month) {
     	Calendar cal = new Calendar();
-		JFrame jFrame = new JFrame(year+"년 "+month+"월");
+		JFrame jFrame = new JFrame("Year " + year + "Month" + month);
     	JButton [] btn = new JButton [35];
     	int count = 0;
         
