@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class Winter extends Season{
 	
-	void tellspring() {};
+    void tellspring() {};
     void tellsummer() {};
     void tellfall() {};
     void tellwinter() {
