@@ -5,7 +5,7 @@ public class Calendar{
     		
 	        String cal = JOptionPane.showInputDialog("Year");
 	        if(!isNumber(cal)) {
-	        	JOptionPane.showMessageDialog(null, "Error");
+	            JOptionPane.showMessageDialog(null, "Error");
 	            return;
 	        }
 	        int year = Integer.parseInt(cal);        
@@ -26,20 +26,20 @@ public class Calendar{
 	        }
 	    	
 	        if(month==3 || month==4 || month==5) {
-	        	Spring spr = new Spring();
-	        	spr.printcal(year,month);
+	            Spring spr = new Spring();
+	            spr.printcal(year,month);
 	        }	
 	        if(month==6|| month==7|| month==8) {
-	        	Summer sum = new Summer();
-	        	sum.printcal(year, month);
+	            Summer sum = new Summer();
+	            sum.printcal(year, month);
 	        }	
 	        if(month==9 || month==10|| month==11) {
-	        	Fall fal = new Fall();
-	        	fal.printcal(year, month);
+	            Fall fal = new Fall();
+	            fal.printcal(year, month);
 	        }	
 	        if(month==1 || month==2 || month==12) {
-	        	Winter win = new Winter();
-	        	win.printcal(year, month);
+	            Winter win = new Winter();
+	            win.printcal(year, month);
 	        }
 	    }
 	    
