@@ -1,11 +1,7 @@
 import javax.swing.JOptionPane;
 
 public class Winter extends Season{
-	
-    void tellspring() {};
-    void tellsummer() {};
-    void tellfall() {};
-    void tellwinter() {
+    void tellseason() {
     	JOptionPane.showMessageDialog(null, "It's Winter");
     };
 }
