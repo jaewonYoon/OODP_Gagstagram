@@ -7,6 +7,7 @@ import javax.swing.*;
 /** written by jaewon Yoon 5/13 **/ 
 
 public class slideshow extends JFrame{
+	private String absolute_path;
     JLabel pic;
     Timer tm;
     int x = 0;
@@ -18,7 +19,7 @@ public class slideshow extends JFrame{
         pic.setBounds(40, 30, 700, 300);
 
         //Call The Function SetImageSize
-        SetImageSize(num); // state design pattern 적용할 수 있을까?
+        SetImageSize(num); // 
                //set a timer
         tm = new Timer(2000,new ActionListener() {
             @Override
@@ -37,7 +38,7 @@ public class slideshow extends JFrame{
         setLocationRelativeTo(null);
     }
     public void start() {
-    		setVisible(true); 
+    		setVisible(true); 	
     }
     public void settimer(int delay) {
     		this.delay = delay; 
@@ -46,10 +47,16 @@ public class slideshow extends JFrame{
     		return this.delay; 
     }
     //create a function to resize the image 
+    public void setImgPath() {
+    	if(Filechooser.path_saved!=null) 
+        	absolute_path = Filechooser.path_saved; 
+    }
+    //"C:\\Users\\Indiaprince\\Desktop\\OODP\\Project2\\Pic\\"+i+".jpg"
     public void SetImageSize(int i){
 		PIctureSet pictureSet = new PIctureSet(i);
+		setImgPath();
 		for(int j = 0 ; j <i; j++) {
-			pictureSet.addPicture(new Picture("C:\\Users\\Indiaprince\\Desktop\\OODP\\Project2\\Pic\\"+i+".jpg")); 
+			pictureSet.addPicture(new Picture(absolute_path+"/"+i+".jpg")); 
 		}
 		Iterator it =pictureSet.iterator();
 		while(it.hasNext()) {
@@ -61,8 +68,5 @@ public class slideshow extends JFrame{
         pic.setIcon(newImc);
 		}
     }
-    public static void main(String[] args){ 
-    	slideshow slide1 = new slideshow(5); 
-    	slide1.start(); 
-    }
+  
 }
