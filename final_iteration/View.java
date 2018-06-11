@@ -64,8 +64,8 @@ public class View extends JFrame{
             if(e== Posting){
             	Post p=new Post();
         		p.setVisible(true);
-                PostOnCommand PostOn=new PostOnCommand(p);
-                remote.setCommand(1, PostOn);
+                PostOnCommand SetOn=new PostOnCommand(p);
+                remote.setCommand(1, SetOn);
                 remote.OnButtonPressed(1);
         		Post.load();
         		Post.post();

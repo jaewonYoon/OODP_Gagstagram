@@ -26,13 +26,13 @@ public void saveimage() {
 	piccount = 0; 
 	visitorFile samplefile = new visitorFile("something",""); 
 	Filevisitor filevisitor = new Filevisitor(".jpg");
-	samplefile.accept(filevisitor);// arrayList 에 들어간 상태 (jpgfiles)
+	samplefile.accept(filevisitor);
 	//filevisitor.visit(samplefile); // filevisitor 의 jpgfiles에다가 저장함. 
 	java.util.Iterator it = filevisitor.getfiles();
-
 	while(it.hasNext()) { //총 사진  몇 장 있는지 세기  
 		piccount++;
 		File file = (File) it.next();
+		System.out.println(file.toString());
 	}
 	if(seturl==null) {
 		output ="no url set!"; 
